@@ -1,8 +1,9 @@
-name = "miguel-ai"
+name = "miguel-ai-worker"
+main = "src/index.ts"
 compatibility_date = "2025-12-18"
 compatibility_flags = ["nodejs_compat"]
 
-# Environment variables (set these in Cloudflare dashboard or using wrangler secret)
+# Environment variables (set using: wrangler secret put GROQ_API_KEY)
 # GROQ_API_KEY
 # GEMINI_API_KEY
 # MISTRAL_API_KEY
