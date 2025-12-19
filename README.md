@@ -1,6 +1,6 @@
 # Miguel AI Cloudflare
 
-AI-powered chatbot about Miguel Lacanienta's professional profile, deployed on Cloudflare Pages with Workers/.
+AI-powered chatbot about Miguel Lacanienta's professional profile, deployed on Cloudflare Pages with Workers.
 
 ## 🚀 Cloudflare Deployment
 
