@@ -11,7 +11,7 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
-  const [selectedModel, setSelectedModel] = useState('gemini');
+  const [selectedModel, setSelectedModel] = useState('mistral');
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -241,8 +241,6 @@ export default function Home() {
                             <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
                           </svg>
                           <span className="text-xs font-medium text-gray-600">
-                            {msg.model === 'groq' && 'Llama 3.3 70B'}
-                            {msg.model === 'gemini' && 'Gemma 3 27B'}
                             {msg.model === 'mistral' && 'Mistral Large'}
                           </span>
                         </div>
@@ -292,10 +290,7 @@ export default function Home() {
                 />
                     
                 {/* Model Selector */}
-                <ModelSelector 
-                  selectedModel={selectedModel}
-                  onModelChange={setSelectedModel}
-                />
+                <ModelSelector />
                         
                 {/* Send Button */}
                 <button

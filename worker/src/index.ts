@@ -1,5 +1,4 @@
 export interface Env {
-  GEMINI_API_KEY: string;
   MISTRAL_API_KEY: string;
 }
 
@@ -65,11 +64,7 @@ export default {
       }
 
       let result: Response;
-      if (model === 'groq') {
-        result = await handleGroq(message, env);
-      } else if (model === 'gemini') {
-        result = await handleGemini(message, env);
-      } else if (model === 'mistral') {
+      if (model === 'mistral') {
         result = await handleMistral(message, env);
       } else {
         return new Response(JSON.stringify({ error: 'Invalid model' }), {
@@ -96,45 +91,6 @@ export default {
     }
   },
 };
-
-async function handleGemini(message: string, env: Env): Promise<Response> {
-  if (!env.GEMINI_API_KEY) {
-    return new Response(JSON.stringify({ error: 'Gemini API key not configured' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemma-3-27b-it:generateContent?key=${env.GEMINI_API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{
-            text: `${getSystemPrompt()}\n\nUser: ${message}`
-          }]
-        }],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 200,
-        }
-      }),
-    }
-  );
-
-  const data = await response.json() as any;
-
-  if (!response.ok) {
-    throw new Error('Gemini API request failed');
-  }
-
-  const aiMessage = data.candidates[0].content.parts[0].text;
-  return new Response(JSON.stringify({ message: aiMessage }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
 
 async function handleMistral(message: string, env: Env): Promise<Response> {
   if (!env.MISTRAL_API_KEY) {
