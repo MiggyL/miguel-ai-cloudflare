@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Avatar from './components/Avatar';
 import QRCode from './components/QRCode';
 import ModelSelector from './components/ModelSelector';
+import DeploymentSelector from './components/DeploymentSelector';
 import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
@@ -115,10 +116,7 @@ export default function Home() {
             </div>
             <span className="text-lg font-medium text-gray-800">MiguelAI</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-gray-500">
-            <div className="w-2 h-2 rounded-full bg-green-500"></div>
-            <span>Online</span>
-          </div>
+          <DeploymentSelector />
         </div>
       </header>
 
