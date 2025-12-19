@@ -3,6 +3,9 @@ compatibility_date = "2025-12-18"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".open-next/worker"
 
+[build]
+command = "npm run pages:build"
+
 # Environment variables (set these in Cloudflare dashboard or using wrangler secret)
 # GROQ_API_KEY
 # GEMINI_API_KEY
