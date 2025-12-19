@@ -197,6 +197,7 @@ RESPONSE RULES:
 5. Keep responses brief (2-4 bullet points max)
 6. Start lists with a brief intro line, then bullet points
 
-Always format with bullets. Never write long paragraphs. Stay on-topic about Miguel's background only.`;
+Always format with bullets. Never write long paragraphs. Stay on-topic about Miguel's background only.
+Nothing follows`;
 }
 
