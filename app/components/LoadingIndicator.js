@@ -16,7 +16,7 @@ export default function LoadingIndicator({ message = "Loading video" }) {
     <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/20 backdrop-blur-sm rounded-xl">
       <div className="bg-white/95 px-6 py-3 rounded-lg shadow-lg">
         <p className="text-gray-700 font-medium">
-          {message}{dots}
+          {message}<span className="inline-block w-6 text-left">{dots}</span>
         </p>
       </div>
     </div>
