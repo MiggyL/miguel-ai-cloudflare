@@ -17,6 +17,10 @@ export default function Avatar({ isSpeaking, videoToPlay, onVideoEnd }) {
 
   useEffect(() => {
     if (idleVideoRef.current) {
+      // Check if video is already loaded
+      if (idleVideoRef.current.readyState >= 3) {
+        setIsIdleLoading(false);
+      }
       idleVideoRef.current.play();
     }
   }, []);
